@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./menu.css" />
+    <link rel="stylesheet" href="./modal.css" />
+  </head>
+  <body>
+    <header>
+      <ul class="menu">
+        <li
+          class="menu-item active"
+          onmouseover="hoverMenuItem(this)"
+          onmouseout="outMenuItem(this)"
+        >
+          Trang Chủ
+        </li>
+        <li
+          class="menu-item"
+          onmouseover="hoverMenuItem(this)"
+          onmouseout="outMenuItem(this)"
+        >
+          Giới thiệu
+        </li>
+        <li
+          class="menu-item"
+          onmouseover="hoverMenuItem(this)"
+          onmouseout="outMenuItem(this)"
+        >
+          Bài Viết
+        </li>
+        <li
+          class="menu-item"
+          onmouseover="hoverMenuItem(this)"
+          onmouseout="outMenuItem(this)"
+        >
+          Liên lạc
+        </li>
+      </ul>
+      <form class="search-form">
+        <input class="input-search-form" placeholder="Tìm kiếm..." />
+      </form>
+    </header>
+    <b>Ví dụ liên lạc Javascript với HTML, CSS</b>
+    <p>Nội dung đang cập nhật...</p>
+    <button
+      id="loginBtn"
+      onclick="document.getElementById('id01').style.display='block'"
+      style="width: auto"
+    >
+      Đăng nhập
+    </button>
+    <div id="id01" class="modal">
+      <form class="modal-content animate">
+        <div class="imgcontainer">
+          <span
+            onclick="document.getElementById('id01').style.display='none'"
+            class="close"
+            title="Close Modal"
+            >&times;</span
+          >
+          <img
+            src="https://www.w3schools.com/howto/img_avatar2.png"
+            alt="Avatar"
+            class="avatar"
+          />
+        </div>
+
+        <div class="container">
+          <label for="uname"><b>Username</b></label>
+          <input
+            type="text"
+            placeholder="Enter Username"
+            name="uname"
+            required
+          />
+
+          <label for="psw"><b>Password</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="psw"
+            required
+          />
+
+          <button id="loginModalBtn" onclick="login()" onkeypress="login()">Login</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember" /> Remember
+            me
+          </label>
+        </div>
+
+        <div class="container" style="background-color: #f1f1f1">
+          <button
+            type="button"
+            onclick="document.getElementById('id01').style.display='none'"
+            class="cancelbtn"
+          >
+            Cancel
+          </button>
+          <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      function hoverMenuItem(currentTag) {
+        console.log(currentTag);
+        currentTag.style.backgroundColor = "#f2f2f2";
+        currentTag.style.color = "black";
+      }
+
+      function outMenuItem(currentTag) {
+        var activeClass = currentTag.classList[1];
+        if (activeClass === "active") {
+          currentTag.style.backgroundColor = "#1fc61f";
+          currentTag.style.color = "white";
+        } else {
+          currentTag.style.backgroundColor = "black";
+          currentTag.style.color = "white";
+        }
+      }
+
+      
+
+      // dispatch the event on some DOM element
+      document.getElementById("myInput").dispatchEvent(event);
+
+      function login() {
+        var username = document.getElementsByName("uname")[0].value;
+        var password = document.getElementsByName("psw")[0].value;
+        if (username === "admin" && password === "123456") {
+          alert("Đăng nhập thành công");
+        } else {
+          alert("Đăng nhập thất bại");
+        }
+      }
+    </script>
+  </body>
+</html>
